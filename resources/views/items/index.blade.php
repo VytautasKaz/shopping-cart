@@ -4,7 +4,7 @@
         <table class="table">
             <tr>
                 <th>Item</th>
-                <th>Price</th>
+                <th>Price, Eur</th>
                 <th>Description</th>
                 <th>Actions</th>
             </tr>
@@ -14,8 +14,9 @@
                     <td>{{ $item->price }}</td>
                     <td>{{ $item->description }}</td>
                     <td>
-                        <form action="" method="POST">
-                            <a class="btn btn-success" href="#">Edit</a>
+                        <form action="{{ route('items.destroy', $item->id) }}" method="POST">
+                            <a class="btn btn-success" href="{{ route('items.show', $item->id) }}">View</a>
+                            <a class="btn btn-success" href="{{ route('items.edit', $item->id) }}">Edit</a>
                             @csrf @method('delete')
                             <input type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"
                                 value="Delete" />
@@ -25,7 +26,7 @@
             @endforeach
         </table>
         <div>
-            <a href="#" class="btn btn-success">Add</a>
+            <a href="{{ route('items.create') }}" class="btn btn-success">Add</a>
         </div>
     </div>
 @endsection
