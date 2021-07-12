@@ -15,11 +15,17 @@
                     <td>{{ $item->description }}</td>
                     <td>
                         <form action="{{ route('items.destroy', $item->id) }}" method="POST">
-                            <a class="btn btn-success" href="{{ route('items.show', $item->id) }}">View</a>
-                            <a class="btn btn-success" href="{{ route('items.edit', $item->id) }}">Edit</a>
+                            <a href="{{ route('items.show', $item->id) }}">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </a>
+                            <a href="{{ route('items.edit', $item->id) }}">
+                                <i class="fas fa-edit"></i>
+                            </a>
                             @csrf @method('delete')
-                            <input type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"
-                                value="Delete" />
+                            <button style="border: none; background: none; color: #ff0011; padding: 0" type="submit"
+                                onclick="return confirm('Are you sure?')">
+                                <i class="fas fa-trash"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>
