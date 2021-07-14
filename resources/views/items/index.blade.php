@@ -40,5 +40,7 @@
                 </tr>
             @endforeach
         </table>
-    </div>
-@endsection
+        <div class="page-links">
+            {{ $items->links() }}
+        </div>
+    @endsection

@@ -6192,3 +6192,8 @@ readers do not read off random characters that represent icons */
     word-wrap: break-word;
     max-width: 400px;
 }
+
+.page-links {
+    width: 200px;
+    margin: auto;
+}
