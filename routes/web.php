@@ -19,9 +19,11 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::middleware(['auth'])->group(function () {
-    Route::resource('items', ItemController::class);
-});
+Route::resource('items', ItemController::class);
+
+// Route::middleware(['auth'])->group(function () {
+//     Route::resource('items', ItemController::class);
+// });
 
 Auth::routes();
 

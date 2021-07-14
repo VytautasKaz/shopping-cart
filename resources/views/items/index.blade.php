@@ -6,25 +6,31 @@
                 <th>Item</th>
                 <th>Price, Eur</th>
                 <th>Description</th>
-                <th>Actions</th>
+                <th class="center-col">Amount</th>
+                <th class="center-col">Actions</th>
             </tr>
             @foreach ($items as $item)
                 <tr>
                     <td>{{ $item->item_name }}</td>
                     <td>{{ $item->price }}</td>
                     <td>{{ $item->description }}</td>
-                    <td>
+                    <td class="center-col">
+                        <form action="">
+                            <input class="amount-input-index" type="number" min="1" value="1">
+                            <a class="btn btn-success" href="#">Add to Cart</a>
+                        </form>
+                    </td>
+                    <td class="center-col">
                         <form action="{{ route('items.destroy', $item->id) }}" method="POST">
                             <a href="{{ route('items.show', $item->id) }}">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                <i class="fa fa-eye action-icons"></i>
                             </a>
                             <a href="{{ route('items.edit', $item->id) }}">
-                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-edit action-icons"></i>
                             </a>
                             @csrf @method('delete')
-                            <button style="border: none; background: none; color: #ff0011; padding: 0" type="submit"
-                                onclick="return confirm('Are you sure?')">
-                                <i class="fas fa-trash"></i>
+                            <button class="delete-btn-index" type="submit" onclick="return confirm('Are you sure?')">
+                                <i class="fas fa-trash action-icons"></i>
                             </button>
                         </form>
                     </td>

@@ -18,7 +18,8 @@
                             </div>
                             <div class="form-group">
                                 <label>Price, €:</label>
-                                <input type="text" name="price" class="form-control" value="{{ $item->price }}" required>
+                                <input type="currency" name="price" class="form-control" value="{{ $item->price }}"
+                                    required>
                                 @error('price')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

@@ -17,7 +17,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Price, €:</label>
-                                <input type="decimal" name="price" class="form-control" required>
+                                <input type="currency" name="price" class="form-control" required>
                                 @error('price')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
