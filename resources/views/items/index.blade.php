@@ -1,11 +1,14 @@
 @extends('layouts.app')
 @section('content')
     <div class="card-body container">
+        <div>
+            <a href="{{ route('items.create') }}" class="btn btn-success" style="margin-bottom: 20px;">Add a new Item</a>
+        </div>
         <table class="table">
             <tr>
                 <th>Item</th>
                 <th>Price, Eur</th>
-                <th>Description</th>
+                <th class="descr-col">Description</th>
                 <th class="center-col">Amount</th>
                 <th class="center-col">Actions</th>
             </tr>
@@ -13,7 +16,7 @@
                 <tr>
                     <td>{{ $item->item_name }}</td>
                     <td>{{ $item->price }}</td>
-                    <td>{{ $item->description }}</td>
+                    <td class="descr-col">{{ $item->description }}</td>
                     <td class="center-col">
                         <form action="">
                             <input class="amount-input-index" type="number" min="1" value="1">
@@ -37,8 +40,5 @@
                 </tr>
             @endforeach
         </table>
-        <div>
-            <a href="{{ route('items.create') }}" class="btn btn-success">Add</a>
-        </div>
     </div>
 @endsection

@@ -6181,8 +6181,14 @@ readers do not read off random characters that represent icons */
 .amount-input-index {
     width: 60px;
     height: 32px;
+    border-radius: 5px;
 }
 
 .center-col {
     text-align: center;
+}
+
+.descr-col {
+    word-wrap: break-word;
+    max-width: 400px;
 }
