@@ -9,21 +9,21 @@
                 <th>Item</th>
                 <th>Price, €</th>
                 <th class="descr-col">Description</th>
-                <th class="center-col">Quantity</th>
-                <th class="center-col">Actions</th>
+                <th class="text-center">Quantity</th>
+                <th class="text-center">Actions</th>
             </tr>
             @foreach ($items as $item)
                 <tr>
                     <td>{{ $item->item_name }}</td>
                     <td>{{ $item->price }}</td>
                     <td class="descr-col">{{ $item->description }}</td>
-                    <td class="center-col">
+                    <td class="text-center">
                         <form action="">
                             <input class="amount-input-index" name="quantity" type="number" min="1" value="1">
                             <a class="btn btn-success" href="{{ route('add_to_cart', $item->id) }}">Add to Cart</a>
                         </form>
                     </td>
-                    <td class="center-col">
+                    <td class="text-center">
                         <form action="{{ route('items.destroy', $item->id) }}" method="POST">
                             <a href="{{ route('items.show', $item->id) }}">
                                 <i class="fa fa-eye action-icons"></i>

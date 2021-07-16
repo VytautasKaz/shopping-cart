@@ -6184,11 +6184,6 @@ readers do not read off random characters that represent icons */
   border-radius: 5px;
 }
 
-.center-col,
-.show-header {
-  text-align: center;
-}
-
 .descr-col {
   word-wrap: break-word;
   max-width: 400px;

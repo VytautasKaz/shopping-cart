@@ -48,7 +48,7 @@
             <tfoot>
                 <tr>
                     <td colspan="5" class="text-right">
-                        <h3><strong>Total {{ $total }} €</strong></h3>
+                        <h3><strong>Total: {{ $total }} €</strong></h3>
                     </td>
                 </tr>
                 <tr>
@@ -63,12 +63,13 @@
         </table>
     </div>
 @endsection
+
 @section('scripts')
     <script type="text/javascript">
         $(".update-cart").change(function(e) {
 
             e.preventDefault();
-            let ele = $(this);
+            var ele = $(this);
 
             $.ajax({
                 url: '{{ route('update_cart') }}',
@@ -87,7 +88,7 @@
         $(".remove-from-cart").click(function(e) {
 
             e.preventDefault();
-            let ele = $(this);
+            var ele = $(this);
 
             $.ajax({
                 url: '{{ route('remove_from_cart') }}',

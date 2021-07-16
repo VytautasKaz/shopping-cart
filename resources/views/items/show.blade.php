@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header" style="show-header">Viewing: <strong>{{ $item->item_name }}</strong>
+                    <div class="card-header text-center">Viewing: <strong>{{ $item->item_name }}</strong>
                     </div>
                     <div class="card-body">
                         <div>
