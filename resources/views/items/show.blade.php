@@ -4,18 +4,18 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Viewing: {{ $item->item_name }}</div>
+                    <div class="card-header" style="show-header">Viewing: <strong>{{ $item->item_name }}</strong>
+                    </div>
                     <div class="card-body">
                         <div>
-                            <label>Item:</label>
-                            <p>{{ $item->item_name }}</p>
+                            <img src="{{ $item->path_to_img }}" alt="">
                         </div>
                         <div>
-                            <label>Price, €:</label>
+                            <label><strong>Price, €:</strong></label>
                             <p>{{ $item->price }}</p>
                         </div>
                         <div>
-                            <label>Description:</label>
+                            <label><strong>Description:</strong></label>
                             <p style="width: 100%">{{ $item->description }}</p>
                         </div>
                         <a class="btn btn-success" href="{{ route('items.index') }}">Back to list</a>

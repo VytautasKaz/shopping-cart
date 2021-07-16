@@ -29,6 +29,7 @@ class ItemFactory extends Factory
             'item_name' => $item_name,
             'description' => $this->faker->realText(200),
             'price' => $this->faker->numberBetween(10, 500),
+            'path_to_img' => 'https://st2.depositphotos.com/3765753/5349/v/600/depositphotos_53491489-stock-illustration-example-rubber-stamp-vector-over.jpg',
         ];
     }
 }

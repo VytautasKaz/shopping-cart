@@ -20,6 +20,10 @@ Route::get('/', function () {
 })->name('home');
 
 Route::resource('items', ItemController::class);
+Route::get('cart', [ItemController::class, 'cart'])->name('cart');
+Route::get('add-to-cart/{id}', [ItemController::class, 'addToCart'])->name('add_to_cart');
+Route::patch('update-cart', [ItemController::class, 'updateCart'])->name('update_cart');
+Route::delete('remove-from-cart', [ItemController::class, 'removeFromCart'])->name('remove_from_cart');
 
 // Route::middleware(['auth'])->group(function () {
 //     Route::resource('items', ItemController::class);

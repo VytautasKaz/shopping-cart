@@ -7,9 +7,9 @@
         <table class="table">
             <tr>
                 <th>Item</th>
-                <th>Price, Eur</th>
+                <th>Price, €</th>
                 <th class="descr-col">Description</th>
-                <th class="center-col">Amount</th>
+                <th class="center-col">Quantity</th>
                 <th class="center-col">Actions</th>
             </tr>
             @foreach ($items as $item)
@@ -19,8 +19,8 @@
                     <td class="descr-col">{{ $item->description }}</td>
                     <td class="center-col">
                         <form action="">
-                            <input class="amount-input-index" type="number" min="1" value="1">
-                            <a class="btn btn-success" href="#">Add to Cart</a>
+                            <input class="amount-input-index" name="quantity" type="number" min="1" value="1">
+                            <a class="btn btn-success" href="{{ route('add_to_cart', $item->id) }}">Add to Cart</a>
                         </form>
                     </td>
                     <td class="center-col">
