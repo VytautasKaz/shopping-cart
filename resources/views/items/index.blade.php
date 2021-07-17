@@ -54,6 +54,6 @@
             @endforeach
         </table>
         <div class="page-links">
-            {{ $items->links() }}
+            {!! $items->appends(\Request::except('page'))->render() !!}
         </div>
     @endsection
