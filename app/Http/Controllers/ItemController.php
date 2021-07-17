@@ -108,7 +108,7 @@ class ItemController extends Controller
         } else {
             $cart[$request->id] = [
                 "path_to_img" => $item->path_to_img,
-                'item_name' => $item->name,
+                'item_name' => $item->item_name,
                 'price' => $item->price,
                 'description' => $item->description,
                 'quantity' => $request->quantity,

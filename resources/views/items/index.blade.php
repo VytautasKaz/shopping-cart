@@ -10,7 +10,13 @@
                 <th>Price, €</th>
                 <th class="descr-col">Description</th>
                 <th class="text-center">Quantity</th>
-                <th class="text-center">Actions</th>
+                <th class="text-center">
+                    @if (auth()->check())
+                        Actions
+                    @else
+                        View
+                    @endif
+                </th>
             </tr>
             @foreach ($items as $item)
                 <tr>
@@ -33,13 +39,15 @@
                             <a href="{{ route('items.show', $item->id) }}">
                                 <i class="fa fa-eye action-icons"></i>
                             </a>
-                            <a href="{{ route('items.edit', $item->id) }}">
-                                <i class="fas fa-edit action-icons"></i>
-                            </a>
-                            @csrf @method('delete')
-                            <button class="delete-btn-index" type="submit" onclick="return confirm('Are you sure?')">
-                                <i class="fas fa-trash action-icons"></i>
-                            </button>
+                            @if (auth()->check())
+                                <a href="{{ route('items.edit', $item->id) }}">
+                                    <i class="fas fa-edit action-icons"></i>
+                                </a>
+                                @csrf @method('delete')
+                                <button class="delete-btn-index" type="submit" onclick="return confirm('Are you sure?')">
+                                    <i class="fas fa-trash action-icons"></i>
+                                </button>
+                            @endif
                         </form>
                     </td>
                 </tr>
