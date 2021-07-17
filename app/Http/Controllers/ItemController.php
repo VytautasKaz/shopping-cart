@@ -12,9 +12,14 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $items = Item::sortable()->paginate(5);
+        if (!$request->sort) {
+            $items = Item::orderBy('item_name')->paginate(5);
+        } else {
+            $items = Item::sortable()->paginate(5);
+        }
+
 
         return view('items.index', ['items' => $items]);
     }
