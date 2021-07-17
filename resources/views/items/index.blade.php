@@ -6,8 +6,8 @@
         </div>
         <table class="table">
             <tr>
-                <th>Item</th>
-                <th>Price, €</th>
+                <th>@sortablelink('item_name', 'Item')</th>
+                <th>@sortablelink('price', 'Price, €')</th>
                 <th class="descr-col">Description</th>
                 <th class="text-center">Quantity</th>
                 <th class="text-center">
