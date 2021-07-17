@@ -19,15 +19,19 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/items/create', [ItemController::class, 'create'])->name('items.create');
+    Route::post('/items', [ItemController::class, 'store'])->name('items.store');
+    Route::get('/items/{id}/edit', [ItemController::class, 'edit'])->name('items.edit');
+    Route::put('/items/{id}', [ItemController::class, 'update'])->name('items.update');
+    Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('items.destroy');
+});
+
 Route::resource('items', ItemController::class);
 Route::get('cart', [ItemController::class, 'cart'])->name('cart');
 Route::get('add-to-cart/{id}', [ItemController::class, 'addToCart'])->name('add_to_cart');
 Route::patch('update-cart', [ItemController::class, 'updateCart'])->name('update_cart');
 Route::delete('remove-from-cart', [ItemController::class, 'removeFromCart'])->name('remove_from_cart');
-
-// Route::middleware(['auth'])->group(function () {
-//     Route::resource('items', ItemController::class);
-// });
 
 Auth::routes();
 

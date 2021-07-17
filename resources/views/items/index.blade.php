@@ -14,13 +14,18 @@
             </tr>
             @foreach ($items as $item)
                 <tr>
-                    <td>{{ $item->item_name }}</td>
+                    <td>
+                        @if ($item->path_to_img)
+                            <img class="index-item-img" src="{{ $item->path_to_img }}" alt="">
+                        @endif
+                        <strong>{{ $item->item_name }}</strong>
+                    </td>
                     <td>{{ $item->price }}</td>
                     <td class="descr-col">{{ $item->description }}</td>
                     <td class="text-center">
-                        <form action="">
+                        <form action="{{ route('add_to_cart', $item->id) }}">
                             <input class="amount-input-index" name="quantity" type="number" min="1" value="1">
-                            <a class="btn btn-success" href="{{ route('add_to_cart', $item->id) }}">Add to Cart</a>
+                            <button type="submit" class="btn btn-success">Add to Cart</button>
                         </form>
                     </td>
                     <td class="text-center">

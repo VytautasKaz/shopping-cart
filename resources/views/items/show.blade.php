@@ -4,12 +4,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-center">Viewing: <strong>{{ $item->item_name }}</strong>
+                    <div class="card-header text-center">Viewing: <br><strong>{{ $item->item_name }}</strong>
                     </div>
                     <div class="card-body">
-                        <div>
-                            <img src="{{ $item->path_to_img }}" alt="">
-                        </div>
+                        @if ($item->path_to_img)
+                            <div>
+                                <img style="max-width: 600px; height: auto;" src="{{ $item->path_to_img }}" alt="">
+                            </div>
+                        @endif
                         <div>
                             <label><strong>Price, €:</strong></label>
                             <p>{{ $item->price }}</p>

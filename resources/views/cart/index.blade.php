@@ -53,10 +53,10 @@
                 </tr>
                 <tr>
                     <td colspan="5" class="text-right">
-                        <a href="{{ route('items.index') }}" class="btn btn-warning">
+                        <a href="{{ route('items.index') }}" class="btn btn-outline-primary">
                             <i class="fa fa-angle-double-left"></i> Continue Shopping
                         </a>
-                        <button class="btn btn-success">Checkout</button>
+                        <button class="btn btn-outline-primary">Submit Order</button>
                     </td>
                 </tr>
             </tfoot>

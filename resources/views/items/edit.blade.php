@@ -9,6 +9,14 @@
                         <form action="{{ route('items.update', $item->id) }}" method="POST">
                             @csrf @method('PUT')
                             <div class="form-group">
+                                <label>Enter Image URL:</label>
+                                <input type="text" name="path_to_img" class="form-control"
+                                    value="{{ $item->path_to_img }}">
+                                @error('path_to_img')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
                                 <label>Item:</label>
                                 <input type="text" name="item_name" class="form-control" value="{{ $item->item_name }}"
                                     required>

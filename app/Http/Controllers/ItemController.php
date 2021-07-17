@@ -98,20 +98,20 @@ class ItemController extends Controller
         return view('cart.index');
     }
 
-    public function addToCart($id)
+    public function addToCart(Request $request)
     {
-        $item = Item::findOrFail($id);
+        $item = Item::findOrFail($request->id);
         $cart = session()->get('cart', []);
 
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
+        if (isset($cart[$request->id])) {
+            $cart[$request->id]['quantity']++;
         } else {
-            $cart[$id] = [
+            $cart[$request->id] = [
                 "path_to_img" => $item->path_to_img,
                 'item_name' => $item->name,
                 'price' => $item->price,
                 'description' => $item->description,
-                'quantity' => 1,
+                'quantity' => $request->quantity,
             ];
         }
         session()->put('cart', $cart);
