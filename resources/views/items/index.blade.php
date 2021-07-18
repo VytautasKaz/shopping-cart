@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
     <div class="card-body container">
+        <form class="form-inline" style="margin-bottom: 20px;" action="{{ route('items.index') }}" method="GET">
+            <input class="form-control" name="search_query" type="text" placeholder="Search item by its name...">
+            <button class="btn btn-outline-info" style="margin-left: 10px;" type="submit">Search</button>
+            <a class="btn btn-success" style="margin-left: 5px;" href={{ route('items.index') }}>Show All</a>
+        </form>
         @if (auth()->check())
             <div>
                 <a href="{{ route('items.create') }}" class="btn btn-success" style="margin-bottom: 20px;">Add a new

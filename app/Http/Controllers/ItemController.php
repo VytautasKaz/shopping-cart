@@ -14,10 +14,17 @@ class ItemController extends Controller
      */
     public function index(Request $request)
     {
-        if (!$request->sort) {
-            $items = Item::orderBy('item_name')->paginate(5);
-        } else {
+        if ($request->search_query) {
+            $search_query = $request->search_query;
+            $items = Item::where('item_name', 'LIKE', '%' . $search_query . '%')->sortable()->paginate(5);
+        }
+
+        if ($request->sort) {
             $items = Item::sortable()->paginate(5);
+        }
+
+        if (!$request->sort && !$request->search_query) {
+            $items = Item::orderBy('item_name')->paginate(5);
         }
 
         return view('items.index', ['items' => $items]);
