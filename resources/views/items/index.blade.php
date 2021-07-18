@@ -30,7 +30,7 @@
                         <strong>{{ $item->item_name }}</strong>
                     </td>
                     <td>{{ $item->price }}</td>
-                    <td class="descr-col">{{ $item->description }}</td>
+                    <td class="descr-col">{!! $item->description !!}</td>
                     <td class="text-center">
                         <form action="{{ route('add_to_cart', $item->id) }}">
                             <input class="amount-input-index" name="quantity" type="number" min="1" value="1">

@@ -34,7 +34,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Description:</label>
-                                <textarea style="width: 100%" name="description" cols="30"
+                                <textarea id="mce" style="width: 100%" name="description" cols="30"
                                     rows="10">{{ $item->description }}</textarea>
                                 @error('description')
                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -49,4 +49,12 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        tinymce.init({
+            selector: '#mce'
+        });
+    </script>
 @endsection
