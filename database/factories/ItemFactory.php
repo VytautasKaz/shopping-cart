@@ -22,14 +22,14 @@ class ItemFactory extends Factory
      */
     public function definition()
     {
-        $items = ['Basketball', 'Shirt', 'Pants', 'Jacket', 'Jumper', 'Polo Shirt', 'Computer', 'SmartPhone', 'Tablet'];
+        $items = ['Basketball', 'Shirt', 'Pants', 'Jacket', 'Jumper', 'Polo Shirt', 'Computer', 'Mobile Phone', 'Tablet'];
         $item_name = $this->faker->company . ' ' . Arr::random($items);
 
         return [
             'item_name' => $item_name,
             'description' => $this->faker->realText(200),
             'price' => $this->faker->numberBetween(10, 500),
-            'path_to_img' => 'https://st2.depositphotos.com/3765753/5349/v/600/depositphotos_53491489-stock-illustration-example-rubber-stamp-vector-over.jpg',
+            'path_to_img' => $this->faker->imageUrl(640, 480),
         ];
     }
 }

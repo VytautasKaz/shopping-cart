@@ -1,10 +1,13 @@
 @extends('layouts.app')
 @section('content')
     <div class="card-body container">
-        <div>
-            <a href="{{ route('items.create') }}" class="btn btn-success" style="margin-bottom: 20px;">Add a new Item</a>
-        </div>
-        <table class="table">
+        @if (auth()->check())
+            <div>
+                <a href="{{ route('items.create') }}" class="btn btn-success" style="margin-bottom: 20px;">Add a new
+                    Item</a>
+            </div>
+        @endif
+        <table class="table table-hover">
             <tr>
                 <th>@sortablelink('item_name', 'Item')</th>
                 <th>@sortablelink('price', 'Price, €')</th>

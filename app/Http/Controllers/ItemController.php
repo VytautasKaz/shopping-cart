@@ -20,7 +20,6 @@ class ItemController extends Controller
             $items = Item::sortable()->paginate(5);
         }
 
-
         return view('items.index', ['items' => $items]);
     }
 
