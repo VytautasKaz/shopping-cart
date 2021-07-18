@@ -33,6 +33,10 @@ Route::get('add-to-cart/{id}', [ItemController::class, 'addToCart'])->name('add_
 Route::patch('update-cart', [ItemController::class, 'updateCart'])->name('update_cart');
 Route::delete('remove-from-cart', [ItemController::class, 'removeFromCart'])->name('remove_from_cart');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::any('/{any}', function () {
+    return view('404');
+})->where('any', '.*');
