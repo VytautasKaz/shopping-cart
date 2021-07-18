@@ -2,7 +2,21 @@
 @section('content')
     <div class="card-body container">
         <form class="form-inline" style="margin-bottom: 20px;" action="{{ route('items.index') }}" method="GET">
-            <input class="form-control" name="search" type="text" placeholder="Search item by its name...">
+            <select style="margin-right: 10px;" name="currency" id="" class="form-control">
+                <option value="eur" {{ app('request')->input('currency') == 'eur' ? 'selected="selected"' : '' }}>
+                    EUR
+                </option>
+                <option value="gbp" {{ app('request')->input('currency') == 'gbp' ? 'selected="selected"' : '' }}>
+                    GBP
+                </option>
+                <option value="usd" {{ app('request')->input('currency') == 'usd' ? 'selected="selected"' : '' }}>
+                    USD
+                </option>
+            </select>
+            <button class="btn btn-info" type="submit">Set</button>
+        </form>
+        <form class="form-inline" style="margin-bottom: 20px;" action="{{ route('items.index') }}" method="GET">
+            <input class="form-control" name="search" type="text" placeholder="Search by name...">
             <button class="btn btn-info" style="margin-left: 10px;" type="submit">Search</button>
             <a class="btn btn-success" style="margin-left: 5px;" href={{ route('items.index') }}>Show All</a>
         </form>
@@ -15,7 +29,7 @@
         <table class="table table-hover">
             <tr>
                 <th>@sortablelink('item_name', 'Item')</th>
-                <th>@sortablelink('price', 'Price, €')</th>
+                <th>@sortablelink('price', 'Price')</th>
                 <th class="descr-col">Description</th>
                 <th></th>
                 <th class="text-center">
@@ -26,7 +40,7 @@
                     @endif
                 </th>
             </tr>
-            @foreach ($items as $item)
+            @foreach ($items as $key => $item)
                 <tr>
                     <td>
                         @if ($item->path_to_img)
@@ -34,7 +48,7 @@
                         @endif
                         <strong>{{ $item->item_name }}</strong>
                     </td>
-                    <td>{{ $item->price }}</td>
+                    <td>{{ $convertedPrices[$key] }}</td>
                     <td class="descr-col">{!! $item->description !!}</td>
                     <td class="text-center">
                         <form action="{{ route('add_to_cart', $item->id) }}">

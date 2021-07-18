@@ -21,7 +21,19 @@ class ItemController extends Controller
             $items = Item::orderBy('item_name')->paginate(5);
         }
 
-        return view('items.index', ['items' => $items]);
+        $convertedPrices = array();
+
+        foreach ($items as $item) {
+            if ($request->currency == 'usd') {
+                $convertedPrices[] = $item->price * 1.14;
+            } else if ($request->currency == 'gbp') {
+                $convertedPrices[] = $item->price * 0.88;
+            } else {
+                $convertedPrices[] = $item->price;
+            }
+        }
+
+        return view('items.index', compact('items', 'convertedPrices'));
     }
 
     /**

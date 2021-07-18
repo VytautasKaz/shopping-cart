@@ -18,9 +18,10 @@
                         </div>
                         <div>
                             <label><strong>Description</strong></label>
-                            <p style="width: 100%">{{ $item->description }}</p>
+                            <p style="width: 100%">{!! $item->description !!}</p>
                         </div>
-                        <a class="btn btn-success" href="{{ route('items.index') }}">Back to list</a>
+                        <a class="btn btn-success" href="{{ route('items.index') }}">Back to List</a>
+                        <a class="btn btn-info" href="{{ route('cart') }}">To Cart</a>
                     </div>
                 </div>
             </div>
