@@ -8,7 +8,7 @@ A shopping cart app created with Laravel.
 -   Search item by its name.
 -   Sort item by its name or price.
 -   List view: item prices can be displayed in one of three available currencies (EUR, GBP or USD).
--   Add to cart/update cart/remove from cart with AJAX.
+-   Add to cart/update cart/remove from cart.
 
 ## Launch instructions:
 
