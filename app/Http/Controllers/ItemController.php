@@ -42,7 +42,11 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, []);
+        $this->validate($request, [
+            'item_name' => 'required|max:60',
+            'price' => 'required|numeric|min:0.01',
+            'description' => 'max:2000',
+        ]);
         $better = new Item();
         $better->fill($request->all());
         $better->save();
@@ -80,7 +84,11 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-        $this->validate($request, []);
+        $this->validate($request, [
+            'item_name' => 'required|max:60',
+            'price' => 'required|numeric|min:0.01',
+            'description' => 'max:2000',
+        ]);
         $item->fill($request->all());
         $item->save();
         return redirect()->route('items.index');
@@ -109,10 +117,10 @@ class ItemController extends Controller
         $cart = session()->get('cart', []);
 
         if (isset($cart[$request->id])) {
-            $cart[$request->id]['quantity']++;
+            $cart[$request->id]['quantity'] += $request->quantity;
         } else {
             $cart[$request->id] = [
-                "path_to_img" => $item->path_to_img,
+                'path_to_img' => $item->path_to_img,
                 'item_name' => $item->item_name,
                 'price' => $item->price,
                 'description' => $item->description,

@@ -6220,8 +6220,8 @@ readers do not read off random characters that represent icons */
 }
 
 .cart-detail-img img {
-  width: 100%;
-  height: 100%;
+  width: 60px;
+  height: auto;
   padding-left: 15px;
 }
 
@@ -6245,4 +6245,10 @@ readers do not read off random characters that represent icons */
   display: block;
   height: 60px;
   width: auto;
+}
+
+@media (max-width: 767px) {
+  .dropdown {
+    float: none;
+  }
 }

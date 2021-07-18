@@ -9,7 +9,7 @@
                 <th>@sortablelink('item_name', 'Item')</th>
                 <th>@sortablelink('price', 'Price, €')</th>
                 <th class="descr-col">Description</th>
-                <th class="text-center">Quantity</th>
+                <th></th>
                 <th class="text-center">
                     @if (auth()->check())
                         Actions

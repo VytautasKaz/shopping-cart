@@ -20,17 +20,19 @@
                             <td data-th="Item">
                                 <div class="row">
                                     <div class="col-sm-3 hidden-xs">
-                                        <img src="{{ $details['path_to_img'] }}" width="100" height="100"
+                                        <img src="{{ $details['path_to_img'] }}" width="100" height="auto"
                                             class="img-responsive" />
                                     </div>
                                     <div class="col-sm-9">
-                                        <h4 class="nomargin">{{ $details['item_name'] }}</h4>
+                                        <a style="text-decoration: none;" href="{{ route('items.show', $id) }}">
+                                            <h4 class="nomargin">{{ $details['item_name'] }}</h4>
+                                        </a>
                                     </div>
                                 </div>
                             </td>
                             <td data-th="Price">{{ $details['price'] }} €</td>
                             <td data-th="Quantity">
-                                <input type="number" value="{{ $details['quantity'] }}"
+                                <input style="width:80px;" type="number" value="{{ $details['quantity'] }}"
                                     class="form-control quantity update-cart" />
                             </td>
                             <td data-th="Subtotal" class="text-center">
