@@ -20,11 +20,14 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/items/create', [ItemController::class, 'create'])->name('items.create');
-    Route::post('/items', [ItemController::class, 'store'])->name('items.store');
+    Route::resource('items', ItemController::class, ['except' => [
+        'index', 'show',
+    ]]);
 });
 
-Route::resource('items', ItemController::class);
+Route::resource('items', ItemController::class, ['only' => [
+    'index', 'show',
+]]);
 Route::get('cart', [ItemController::class, 'cart'])->name('cart');
 Route::get('add-to-cart/{id}', [ItemController::class, 'addToCart'])->name('add_to_cart');
 Route::patch('update-cart', [ItemController::class, 'updateCart'])->name('update_cart');
