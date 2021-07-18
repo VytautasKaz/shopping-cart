@@ -30,12 +30,19 @@ A shopping cart app created with Laravel.
 
 Need to be logged in to access create/update/delete features.
 
-## Test login detais:
+## Test login details:
 
-E-mail: admin@admin.com
+E-mail: admin@admin.com <br>
 Password: 123456789
 
-**Note:** Only works if **php artisan db:seed** step was not skipped.
+**Note:** This user is only available if **php artisan db:seed** step was not skipped.
+Otherwise, you can comment/remove
+
+```php
+Auth::routes(['register' => false]);
+```
+
+line from Routes\web.php and register a new user.
 
 ## Author:
 
