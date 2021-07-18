@@ -3,7 +3,7 @@
     <div class="card-body container">
         <form class="form-inline" style="margin-bottom: 20px;" action="{{ route('items.index') }}" method="GET">
             <input class="form-control" name="search" type="text" placeholder="Search item by its name...">
-            <button class="btn btn-outline-info" style="margin-left: 10px;" type="submit">Search</button>
+            <button class="btn btn-info" style="margin-left: 10px;" type="submit">Search</button>
             <a class="btn btn-success" style="margin-left: 5px;" href={{ route('items.index') }}>Show All</a>
         </form>
         @if (auth()->check())
